@@ -17,7 +17,7 @@ public class MyExceptionHandler {
     @ExceptionHandler
     @ResponseBody
     public ResultMsg handleNoHandlerFound(NoHandlerFoundException e) {
-        return new ResultMsg().setC(ErrorCode.REQUEST_URL_NOT_EXIST).setM("request URL not exist").setD("");
+        return new ResultMsg().setC(ErrorCode.REQUEST_URL_NOT_EXIST).setM(String.format("request URL not exist: [%s]", e.getRequestURL())).setD("");
     }
 
     @ExceptionHandler
